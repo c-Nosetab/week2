@@ -1,0 +1,28 @@
+<style>
+h2 {
+  color: red;
+  font-family: monospace;
+}
+
+h3 {
+  color: purple;
+}
+</style>
+
+<h1>Contact list:</h1>
+
+<h2>First person:</h2>
+<h3>Name: <%= @contact1.first_name %> <%= @contact1.last_name %></h3>
+<h3>   Email: <%= @contact1.email %> </h3>
+<h3>Phone: <%= @contact1.phone_number %></h3>
+<hr>
+<h2>Second person:</h2>
+<h3>   Name: <%= @contact2.first_name %> <%= @contact2.last_name %></h3>
+<h3>   Email: <%= @contact2.email %> </h3>
+<h3>Phone: <%= @contact2.phone_number %></h3>
+<hr>
+<h2>Third person:</h2>
+<h3>   Name: <%= @contact3.first_name %> <%= @contact3.last_name %></h3>
+<h3>   Email: <%= @contact3.email %> </h3>
+<h3>Phone: <%= @contact3.phone_number %></h3>
+
