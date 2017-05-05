@@ -53,4 +53,20 @@ class QueryParamsController < ApplicationController
 
   end
 
+  def form_submit
+  end
+
+  def answer
+    @guess = params["guess"]
+    win_guess = 50
+
+    if @guess.to_i == win_guess
+      @form_message = "Correct!!!!!"
+    elsif @guess.to_i > win_guess
+      @form_message = "Too high, try again!"
+    elsif @guess.to_i < win_guess
+      @form_message = "Too low, try again"
+    end
+  end
+
 end
