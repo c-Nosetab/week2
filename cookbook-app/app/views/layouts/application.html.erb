@@ -9,6 +9,13 @@
   </head>
 
   <body>
+
+  <% flash.each do |name, message |%>
+    <p><%= message %></p>
+  <% end %>
+
+
+  <a href="/">Home</a> | <a href="/recipes/new">Add New Recipe</a>
     <%= yield %>
   </body>
 </html>
