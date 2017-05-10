@@ -17,7 +17,8 @@ class RecipesController < ApplicationController
                         title: params[:title],
                         chef: params[:chef],
                         ingredients: params[:ingredients],
-                        directions: params[:directions]
+                        directions: params[:directions],
+                        prep_time: params[:prep_time]
                         )
     recipe.save
     flash[:success] = "Recipe Successfully Created!"
@@ -34,7 +35,8 @@ class RecipesController < ApplicationController
                             title: params[:title],
                             chef: params[:chef],
                             ingredients: params[:ingredients],
-                            directions: params[:directions]
+                            directions: params[:directions],
+                            prep_time: params[:prep_time]
                             )
     recipe.save
     flash[:success] = "Recipe Successfully Updated"

@@ -1,8 +1,8 @@
 
 <h1>Contact list:</h1>
-<% @contact.each do |contact| %>
+<% @contact.sort.each do |contact| %>
 <div class="col-sm-6">
-  <h3>Name: <a href="#" data-toggle="modal" data-target="#Modal<%= contact.id %>"> <span class="sr-only">(current)</span> <%= contact.first_name %> <%= contact.last_name %></a></h3>
+  <h3>Name: <a href="#" data-toggle="modal" data-target="#Modal<%= contact.id %>"> <span class="sr-only">(current)</span> <%= contact.full_name %></a></h3>
   <h3>   Email: <%= contact.email %> </h3>
   <h3>Phone: <%= contact.phone_number %></h3>
   <hr>
@@ -20,23 +20,26 @@
               <div class="modal-body">
                 <%= form_tag "/contact/#{contact.id}", method: :patch do %>
                   <div>
-                    First Name: <input type="text" name="first_name" value="<%= contact.first_name %>">
+                    <h4>First Name: <input type="text" name="first_name" value="<%= contact.first_name %>"></h4>
                   </div>
                   <div>
-                    Last Name: <input type="text" name="last_name" value="<%= contact.last_name %>">
+                    <h4>Last Name: <input type="text" name="last_name" value="<%= contact.last_name %>"></h4>
                   </div>
                   <div>
-                    Email: <input type="text" name="email" value="<%= contact.email %>">
+                    <h4>Email: <input type="text" name="email" value="<%= contact.email %>"></h4>
                   </div>
                   <div>
-                    Phone: <input type="text" name="phone_number" value="<%= contact.phone_number %>">
+                    <h4>Phone: <input type="text" name="phone_number" value="<%= contact.phone_number %>"></h4>
                   </div>
-                  <%= submit_tag("Submit") %>
-                <% end %>
+                  <h5>Last updated: <%= contact.friendly_updated_at %></h5>
               </div>
               <div class="modal-footer">
+                <%= link_to "/contact/#{contact.id}", method: :delete do %>
+                  <button type="Delete" class="btn btn-danger left">Delete Contact</button>
+                <% end %>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="Submit" class="btn btn-primary">Save changes</button>
+                <% end %>
               </div>
             </div>
           </div>

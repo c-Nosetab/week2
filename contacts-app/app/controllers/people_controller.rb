@@ -41,6 +41,8 @@ class PeopleController < ApplicationController
   def destroy
     contact_id = Person.find(params[:id])
     contact_id.destroy
+
+    redirect_to "/"
   end
 
 
